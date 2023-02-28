@@ -9,8 +9,12 @@ const cost = document.querySelector(".cost");
 const calc = function () {
 	if (price.value !== '' && people.value !== '' && tip.value !== '') {
 		const money = (Number(tip.value) * Number(price.value)+Number(price.value))/Number(people.value);
+    costInfo.style.display="flex"
+    costInfo.textContent=`Do zapłaty ${money} zł`
+    price.value = ''
+    people.value = ''
+    tip.value = ''
 
-		console.log(money);
 	}else{
     error.textContent="Uzupełnij wszystkie pola"
   }
