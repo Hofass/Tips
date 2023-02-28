@@ -7,16 +7,21 @@ const costInfo = document.querySelector(".cost-info");
 const cost = document.querySelector(".cost");
 
 const calc = function () {
-	if (price.value !== '' && people.value !== '' && tip.value !== '') {
-		const money = (Number(tip.value) * Number(price.value)+Number(price.value))/Number(people.value);
+	if (price.value == '' || people.value == '' || tip.value === 0) {
+    error.textContent="Uzupełnij wszystkie pola"
+    costInfo.textContent=''
+
+		
+
+	}else{
+    const money = (Number(tip.value) * Number(price.value)+Number(price.value))/Number(people.value);
     costInfo.style.display="flex"
-    costInfo.textContent=`Do zapłaty ${money} zł`
+    costInfo.textContent=`Do zapłaty ${money.toFixed(2)} zł`
+    error.textContent=""
+
     price.value = ''
     people.value = ''
     tip.value = ''
-
-	}else{
-    error.textContent="Uzupełnij wszystkie pola"
   }
 };
 
